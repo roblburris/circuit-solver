@@ -1,0 +1,4 @@
+// Defintion of Circuit Specification File (.circ) and Example Circuit Specification
+// This is a comment, comments are ignored by the circuit solver
+
+// New Circuit Element Syntax: IDENTIFIER ::=

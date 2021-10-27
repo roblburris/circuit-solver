@@ -1,4 +1,25 @@
 # Input Language Grammar
 
-CIRCUIT ::= (CIRC_ELEM)* **EOF** \
-CIRC_ELEM ::= VOLT_SRC | CURR_SRC | RESITOR |
+```
+CIRCUIT ::= (CIRC_ELEM)* <EOF>
+
+CIRC_ELEM ::= IDENTIFIER "=" (VOLT_ELEM | CURRENT_ELEM | RESITOR_ELEM | DEP_VOLT_ELEM | DEP_CURRENT_ELEM)
+    | "(" IDENTIFIER "," IDENTIFIER ")" 
+
+VOLT_ELEM ::= "(V" "," <INTEGER_LITERAL> ("" | "," SI_PREFIX ) ")"   
+
+CURRENT_ELEM ::= "(C" "," <INTEGER_LITERAL> ("" | "," SI_PREFIX ) ")"   
+
+RESISTOR_ELEM ::= "(R" "," <INTEGER_LITERAL> ("" | "," SI_PREFIX) ) ")"
+
+DEP_VOLT_ELEM ::= "(depV" "," IDENTIFIER "," <INTEGER_LITERAL> ")"
+
+DEP_CURRENT_ELEMENT ::= "(depC" "," IDENTIFIER "," <INTEGER_LITERAL> ")"
+
+SI_PREFIX ::= "MILLI"
+    | "MICRO"
+    | "KILO"
+    | "MEGA"
+
+IDENTIFIER ::= <IDENTIFIER_LITERAL>
+```
